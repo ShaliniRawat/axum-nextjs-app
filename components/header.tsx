@@ -30,7 +30,7 @@ const containerVariants = {
 
 const Header = () => {
   const router = useRouter()
-  const [isUlOpen, setUlOpen] = useState(false)
+  const [isUlOpen, setUlOpen] = useState(true)
 
   const isActive = (pathname: string) => {
     return router.pathname === pathname
@@ -63,6 +63,20 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [isUlOpen])
+
+  useEffect(() => {
+    const closeUlOnChange = () => {
+      if (window.innerWidth < 768) {
+        setUlOpen(false)
+      }
+    }
+
+    router.events.on('routeChangeStart', closeUlOnChange)
+
+    return () => {
+      router.events.off('routeChangeStart', closeUlOnChange)
+    }
+  }, [router.events])
 
   const toggleUl = () => {
     setUlOpen(!isUlOpen)

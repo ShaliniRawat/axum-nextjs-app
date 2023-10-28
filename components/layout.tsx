@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
 type Props = {
   children?: ReactNode
@@ -13,16 +13,18 @@ const variants = {
 const Layout = ({ children }: Props): React.JSX.Element => {
   return (
     <div>
-      <motion.main
-        className='flex flex-col items-center w-full h-full'
-        initial='hidden'
-        animate='enter'
-        exit='exit'
-        variants={variants}
-        transition={{ type: 'linear' }}
-      >
-        {children}
-      </motion.main>
+      <AnimatePresence>
+        <motion.main
+          className='flex flex-col items-center w-full h-full'
+          initial='hidden'
+          animate='enter'
+          exit='exit'
+          variants={variants}
+          transition={{ type: 'linear' }}
+        >
+          {children}
+        </motion.main>
+      </AnimatePresence>
     </div>
   )
 }

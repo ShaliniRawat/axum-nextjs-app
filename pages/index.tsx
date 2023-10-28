@@ -12,7 +12,7 @@ export default function Index() {
     <Layout>
       <Section linebreak>
         <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-52'>
-          <div className='h-auto w-full'>
+          <div className='h-96 flex md:h-auto w-full'>
             <Image
               src='/gruv.jpg'
               alt='My Image'
