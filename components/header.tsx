@@ -47,11 +47,20 @@ const Header = () => {
       }
     }
 
+    const handleScroll = () => {
+      if (isUlOpen) {
+        setUlOpen(false)
+      }
+    }
+
     window.addEventListener('resize', checkWindowSize)
+    window.addEventListener('scroll', handleScroll)
+
     return () => {
       window.removeEventListener('resize', checkWindowSize)
+      window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [isUlOpen])
 
   const toggleUl = () => {
     setUlOpen(!isUlOpen)
