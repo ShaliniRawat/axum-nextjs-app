@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foregrond: 80, 73, 69;
+  --background: 235, 219, 173;
+  --background-end: 213, 196, 161;
+  --green: #98971a;
+  --orange: #d65d0e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foregrond: 80, 73, 69;
+    --background: 235, 219, 173;
+    --background-end: 213, 196, 161;
+  }
+}
+
+body {
+  color: rgb(var(--foregrond));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end))
+    )
+    rgb(var(--background));
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--background-end);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--orange);
+}
