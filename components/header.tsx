@@ -48,8 +48,10 @@ const Header = () => {
     }
 
     const handleScroll = () => {
-      if (isUlOpen) {
+      if (isUlOpen && window.scrollY > 0) {
         setUlOpen(false)
+      } else if (!isUlOpen && window.scrollY === 0 && window.innerWidth > 768) {
+        setUlOpen(true)
       }
     }
 
@@ -97,7 +99,7 @@ const Header = () => {
       </motion.ul>
       <div
         className={`flex w-screen md:w-fit justify-end ${
-          isUlOpen ? 'bg-transparent' : 'bg-gruvbox-light0'
+          isUlOpen ? 'bg-gruvbox-light0' : 'bg-transparent'
         }`}
       >
         <motion.button
