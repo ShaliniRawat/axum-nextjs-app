@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Roboto_Mono } from 'next/font/google'
 import ArrowSvg from '@/components/arrowSvg'
 import EmptySection from '@/components/emptySection'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const robotoMono = Roboto_Mono({ subsets: ['latin'] })
 const list = ['Devloper', 'Photographer', 'Speaker', 'Designer']
@@ -18,7 +19,7 @@ const Section1 = () => {
 
   return (
     <Section linebreak>
-      <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-52'>
+      <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-52 ml-6'>
         <div className='h-96 flex md:h-auto w-full'>
           <Image
             src='/gruv.jpg'
@@ -41,9 +42,24 @@ const Section1 = () => {
             onClick={handleScroll}
             className='flex flex-row mt-12 md:mt-24 cursor-pointer'
           >
-            <p className='text-4xl font-bold'>
-              More About Me
-            </p>
+            <AnimatePresence>
+              <motion.p
+                className='text-4xl font-bold'
+                animate={{
+                  WebkitTextFillColor: ['#d65d0e', '#98971a'],
+                  y: 10,
+                  transition: {
+                    repeat: Infinity,
+                    duration: 2,
+                    type: 'keyframes',
+                    repeatType: 'reverse',
+                    ease: 'linear'
+                  }
+                }}
+              >
+                More About Me
+              </motion.p>
+            </AnimatePresence>
             <ArrowSvg />
           </div>
         </div>
@@ -55,14 +71,14 @@ const Section1 = () => {
 const Section2 = () => {
   return (
     <Section linebreak>
-      <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 px-32'>
+      <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 px-32 ml-6'>
         <div className='col-span-2'>
           <h1 className={`${robotoMono.className} font-bold text-6xl mb-16`}>
             In brief.
           </h1>
         </div>
         <div className='col-span-1 mb-56'>
-          <p className='text-xl'>
+          <p className='text-xl mb-6'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -70,6 +86,14 @@ const Section2 = () => {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p className='text-xl'>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+            quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+            eos qui ratione voluptatem sequi nesciunt.
           </p>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import Layout from '@/components/layout'
 import Section from '@/components/section'
 import { Roboto_Mono } from 'next/font/google'
-import Image from 'next/image'
 import ClipboardInputBar from '@/components/copyToClipboard'
 import ContactSvg from '@/components/contactSvg'
 
@@ -23,11 +22,11 @@ const SocialLink = ({ name, url }: social): React.JSX.Element => {
   )
 }
 
-export default function AboutPage() {
+export default function ContactPage() {
   return (
     <Layout>
       <Section linebreak>
-        <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-52'>
+        <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 mb-52 ml-6'>
           <div className='w-full row-span-1'>
             <h1 className={`${robotoMono.className} text-6xl mb-4`}>
               Contact Me
