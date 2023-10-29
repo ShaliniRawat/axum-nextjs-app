@@ -5,11 +5,12 @@ import {
   FaFacebook,
   FaYoutube,
   FaInstagram,
-  FaLinkedin,
-  FaCopy
+  FaLinkedin
 } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { Roboto_Mono } from 'next/font/google'
+import ClipboardInputBar from './copyToClipboard'
+
 const robotoMono = Roboto_Mono({ subsets: ['latin'] })
 
 type IconItem = {
@@ -25,34 +26,12 @@ const iconItems: IconItem[] = [
   { name: 'https://linkedin.com', component: <FaLinkedin /> }
 ]
 
-const InputContainer = () => {
-  const email = 'emailaddress@provider.com'
-
-  const copyText = () => {
-    navigator.clipboard.writeText(email)
-  }
-
-  return (
-    <div className='flex w-full relative row-auto my-2'>
-      <input
-        className='text-gruvbox-dark3 bg-gruvbox-light0 overflow-x-auto
-        border-solid border-b-2 border-gruvbox-orange w-full text-lg focus:outline-none'
-        type='text'
-        value={email}
-        readOnly
-      />
-      <button className='-ml-4' onClick={copyText}>
-        <FaCopy />
-      </button>
-    </div>
-  )
-}
-
 const Contact = () => {
   return (
     <div
       className='flex flex-col w-96  bg-gruvbox-light0
        border-2 border-gruvbox-dark4 -mt-24 p-6 relative'
+      style={{ boxShadow: '-8px 8px 0 #7c6f64' }}
     >
       <h2
         className={`text-3xl mb-6 bold text-gruvbox-dark0 ${robotoMono.className}`}
@@ -60,7 +39,7 @@ const Contact = () => {
         Contact Me
       </h2>
       <label className='bold text-xl text-gruvbox-dark0'>Email</label>
-      <InputContainer />
+      <ClipboardInputBar email='email@provider@gmail.com' />
       <p className='text-gruvbox-dark2 text-sm'>sed do eiusmod tempor</p>
     </div>
   )
