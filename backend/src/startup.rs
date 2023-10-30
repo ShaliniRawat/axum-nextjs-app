@@ -6,6 +6,7 @@ use crate::{configuration::Configuration, routes::router};
 
 type Server = axum::Server<AddrIncoming, IntoMakeService<Router>>;
 
+#[allow(dead_code)]
 pub struct Application {
     base_url: String,
     port: u16,
