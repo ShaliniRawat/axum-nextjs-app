@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { Roboto_Mono } from 'next/font/google'
 import { motion } from 'framer-motion'
+import SectionSpy from './section-spy'
 
 const robotoMono = Roboto_Mono({ subsets: ['latin'] })
 const fontStyle = { objectFit: 'cover', width: '100%', height: '100%' }
@@ -62,7 +63,7 @@ const Header = () => {
       window.removeEventListener('resize', checkWindowSize)
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [isUlOpen])
+  })
 
   useEffect(() => {
     const closeUlOnChange = () => {
@@ -88,6 +89,7 @@ const Header = () => {
       flex-col-reverse right-0 w-screen h-screen ml-auto
       md:flex-row md:top-0 md:w-full md:h-16 md:ml-0'
     >
+      <SectionSpy />
       <motion.ul
         className={`${
           robotoMono.className
@@ -97,6 +99,7 @@ const Header = () => {
         `}
         variants={containerVariants}
         initial='visible'
+        exit='remove'
         animate={isUlOpen ? 'visible' : 'hidden'}
       >
         {Links.map((item, index) => (
