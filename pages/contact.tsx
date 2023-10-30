@@ -1,8 +1,8 @@
 import Layout from '@/components/layout'
 import Section from '@/components/section'
 import { Roboto_Mono } from 'next/font/google'
-import ClipboardInputBar from '@/components/copyToClipboard'
-import ContactSvg from '@/components/contactSvg'
+import ClipboardInputBar from '@/components/copy-to-clipboard'
+import ContactSvg from '@/components/contact-svg'
 
 const robotoMono = Roboto_Mono({ subsets: ['latin'] })
 
@@ -42,7 +42,7 @@ export default function ContactPage() {
             <ClipboardInputBar email='email@provider@gmail.com' />
           </div>
           <div className='row-span-2 hidden md:block'>
-          <ContactSvg />
+            <ContactSvg />
           </div>
         </div>
       </Section>

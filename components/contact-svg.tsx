@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const ContactSvg = () => {
   const colors = ['#d5c4a1', '#bdae93', '#a89984']

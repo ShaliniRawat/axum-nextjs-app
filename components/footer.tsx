@@ -9,7 +9,7 @@ import {
 } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { Roboto_Mono } from 'next/font/google'
-import ClipboardInputBar from './copyToClipboard'
+import ClipboardInputBar from './copy-to-clipboard'
 
 const robotoMono = Roboto_Mono({ subsets: ['latin'] })
 

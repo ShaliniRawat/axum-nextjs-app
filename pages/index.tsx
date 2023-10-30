@@ -2,21 +2,21 @@ import Layout from '@/components/layout'
 import Section from '@/components/section'
 import Image from 'next/image'
 import { Roboto_Mono } from 'next/font/google'
-import ArrowSvg from '@/components/arrowSvg'
-import EmptySection from '@/components/emptySection'
+import ArrowSvg from '@/components/arrow-svg'
+import EmptySection from '@/components/empty-section'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const robotoMono = Roboto_Mono({ subsets: ['latin'] })
 const list = ['Devloper', 'Photographer', 'Speaker', 'Designer']
 
-const Section1 = () => {
-  const handleScroll = () => {
-    window.scrollBy({
-      top: window.innerHeight * 1.2,
-      behavior: 'smooth'
-    })
+const scrollTo = (id: string) => {
+  const element = document.getElementById(id)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
   }
+}
 
+const Section1 = () => {
   return (
     <Section linebreak>
       <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-52 ml-6'>
@@ -39,12 +39,14 @@ const Section1 = () => {
             ))}
           </ul>
           <div
-            onClick={handleScroll}
+            onClick={() => {
+              scrollTo('aboutMe')
+            }}
             className='flex flex-row mt-12 md:mt-24 cursor-pointer'
           >
             <AnimatePresence>
               <motion.p
-                className='text-4xl font-bold'
+                className='text-4xl font-bold cursor-pointer'
                 animate={{
                   WebkitTextFillColor: ['#d65d0e', '#98971a'],
                   y: 10,
@@ -70,7 +72,7 @@ const Section1 = () => {
 
 const Section2 = () => {
   return (
-    <Section linebreak>
+    <Section id='aboutMe' linebreak>
       <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 px-32 ml-6'>
         <div className='col-span-2'>
           <h1 className={`${robotoMono.className} font-bold text-6xl mb-16`}>
