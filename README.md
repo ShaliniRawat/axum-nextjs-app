@@ -1,7 +1,7 @@
 # axum and nextjs spa
 
 all dependencies will be fetched automatically 
-install ![nix](https://github.com/NixOS/nix) and direnv
+install [nix](https://github.com/NixOS/nix) and direnv
 
 ## Instructions
 
