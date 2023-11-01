@@ -29,6 +29,6 @@ RUN apt-get update -y \
 
 COPY --from=node-builder /app/out /out
 COPY --from=rust-builder /app/target/release/backend backend
-COPY /backend/configuration configuration
+COPY configuration configuration
 ENV APP_ENVIRONMENT production
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["./backend"]
