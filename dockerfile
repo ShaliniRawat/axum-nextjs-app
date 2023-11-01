@@ -28,6 +28,7 @@ RUN apt-get update -y \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=node-builder /app/out /out
+COPY --from=node-builder /app/public /public
 COPY --from=rust-builder /app/target/release/backend backend
 COPY configuration configuration
 ENV APP_ENVIRONMENT production
