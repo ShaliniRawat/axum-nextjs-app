@@ -40,7 +40,7 @@ const Section1 = () => {
           </ul>
           <div
             onClick={() => {
-              scrollTo('aboutMe')
+              scrollTo('In Brief')
             }}
             className='flex flex-row mt-12 md:mt-24 cursor-pointer'
           >
@@ -72,7 +72,7 @@ const Section1 = () => {
 
 const Section2 = () => {
   return (
-    <Section id='aboutMe' linebreak>
+    <Section id='In Brief' linebreak>
       <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 px-32 ml-6'>
         <div className='col-span-2'>
           <h1 className={`${robotoMono.className} font-bold text-6xl mb-16`}>

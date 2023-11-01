@@ -89,7 +89,9 @@ const Header = () => {
       flex-col-reverse right-0 w-screen h-screen ml-auto
       md:flex-row md:top-0 md:w-full md:h-16 md:ml-0'
     >
-      <SectionSpy />
+      <div className='left-0 fixed ml-6 mt-10'>
+        <SectionSpy />
+      </div>
       <motion.ul
         className={`${
           robotoMono.className
